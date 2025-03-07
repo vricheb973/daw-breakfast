@@ -1,0 +1,855 @@
+{
+	"info": {
+		"_postman_id": "db58d466-4397-4521-bdb9-e3e0047ef5ef",
+		"name": "daw-breakfast",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32509187"
+	},
+	"item": [
+		{
+			"name": "Desayunos",
+			"item": [
+				{
+					"name": "Listar todos los desayunos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/desayunos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"desayunos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener desayuno por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/desayunos/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"desayunos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear desayuno",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idEstablecimiento\": 1,\n  \"nombre\": \"Tostada con tomate y jamón\",\n  \"precio\": 3.50,\n  \"imagen\": \"tostada_tomate.jpg\",\n  \"puntuacion\": 4.8\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/desayunos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"desayunos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar desayuno",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 7,\n  \"idEstablecimiento\": 1,\n  \"nombre\": \"Tostada con tomate y jamón actualizada\",\n  \"precio\": 3.75,\n  \"imagen\": \"tostada_tomate_actualizada.jpg\",\n  \"puntuacion\": 4.9\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/desayunos/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"desayunos",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar desayuno Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/desayunos/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"desayunos",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar desayunos por puntuación",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/desayunos/puntuacion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"desayunos",
+								"puntuacion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar desayunos por establecimiento y puntuación",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/desayunos/establecimiento/2/puntuacion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"desayunos",
+								"establecimiento",
+								"2",
+								"puntuacion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar desayunos por establecimiento y precio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/desayunos/establecimiento/1/precio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"desayunos",
+								"establecimiento",
+								"1",
+								"precio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar desayunos por establecimiento Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/desayunos/establecimiento/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"desayunos",
+								"establecimiento",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cambiar imagen de desayuno",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"imagen\": \"nueva_imagen_desayuno.jpg\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/desayunos/2/imagen",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"desayunos",
+								"2",
+								"imagen"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Establecimientos",
+			"item": [
+				{
+					"name": "Listar todos los establecimientos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/establecimientos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"establecimientos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener establecimiento por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/establecimientos/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"establecimientos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear establecimiento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Nuevo Establecimiento\",\n  \"descripcion\": \"Descripción del nuevo establecimiento\",\n  \"ubicacion\": \"Dirección del establecimiento\",\n  \"puntuacion\": 4.5\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/establecimientos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"establecimientos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar establecimiento",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 5,\n  \"nombre\": \"Establecimiento Actualizado\",\n  \"descripcion\": \"Descripción actualizada\",\n  \"ubicacion\": \"Nueva dirección\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/establecimientos/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"establecimientos",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar establecimiento",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/establecimientos/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"establecimientos",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar establecimientos por puntuación",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/establecimientos/puntuacion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"establecimientos",
+								"puntuacion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar establecimientos por ubicación",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/establecimientos/ubicación?ubicacion=Viso",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"establecimientos",
+								"ubicación"
+							],
+							"query": [
+								{
+									"key": "ubicacion",
+									"value": "Viso"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "Listar todas las reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/reviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener review por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/reviews/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"reviews",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear review",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idUsuario\": 1,\n  \"idDesayuno\": 1,\n  \"fecha\": \"2025-03-06T10:30:00\",\n  \"precio\": 3.50,\n  \"imagen\": \"review_imagen.jpg\",\n  \"puntuacion\": 4,\n  \"comentarios\": \"Excelente desayuno, muy recomendable.\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/reviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar review",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 13,\n  \"idUsuario\": 1,\n  \"idDesayuno\": 1,\n  \"fecha\": \"2025-03-06T10:30:00\",\n  \"precio\": 3.75,\n  \"imagen\": \"review_imagen_actualizada.jpg\",\n  \"puntuacion\": 5,\n  \"comentarios\": \"Actualización: El desayuno es aún mejor de lo que recordaba.\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/reviews/13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"reviews",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar review",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/reviews/14",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"reviews",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar reviews recientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/reviews/recientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"reviews",
+								"recientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar reviews antiguas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/reviews/antiguas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"reviews",
+								"antiguas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar reviews por puntuación Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/reviews/puntuacion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"reviews",
+								"puntuacion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar reviews por desayuno y fecha Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/reviews/desayuno/2/fecha",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"reviews",
+								"desayuno",
+								"2",
+								"fecha"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar reviews por desayuno y puntuación Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/reviews/desayuno/5/puntuacion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"reviews",
+								"desayuno",
+								"5",
+								"puntuacion"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Listar todos los usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener usuario por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/usuarios/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"usuarios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"nuevo_usuario\",\n  \"email\": \"nuevo@email.com\",\n  \"password\": \"contraseña123\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar usuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 6,\n  \"username\": \"usuario_actualizado\",\n  \"email\": \"actualizado@email.com\",\n  \"password\": \"nuevacontraseña123\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/usuarios/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"usuarios",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/usuarios/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"usuarios",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cambiar contraseña",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"vieja\": \"contraseña123\",\n  \"nueva\": \"pass123\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/dawbreakfast/api/usuarios/7/password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dawbreakfast",
+								"api",
+								"usuarios",
+								"7",
+								"password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

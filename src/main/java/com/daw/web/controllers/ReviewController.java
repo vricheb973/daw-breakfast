@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.daw.persistence.entities.Review;
+import com.daw.services.DesayunoService;
 import com.daw.services.ReviewService;
+import com.daw.services.UsuarioService;
 import com.daw.services.dtos.ReviewDTO;
 
 
@@ -25,6 +27,12 @@ public class ReviewController {
 
 	@Autowired
 	private ReviewService reviewService;
+	
+	@Autowired 
+	private UsuarioService usuarioService;
+	
+	@Autowired
+	private DesayunoService desayunoService;
 	
 	@GetMapping
 	public ResponseEntity<List<ReviewDTO>> list(){
@@ -42,6 +50,13 @@ public class ReviewController {
 	
 	@PostMapping
 	public ResponseEntity<ReviewDTO> create(@RequestBody Review review){
+		if(!this.usuarioService.existsUsuario(review.getIdUsuario())) {
+			return ResponseEntity.notFound().build();
+		}
+		if(!this.desayunoService.existsDesayuno(review.getIdDesayuno())) {
+			return ResponseEntity.notFound().build();
+		}
+		
 		return new ResponseEntity<ReviewDTO>(this.reviewService.create(review), HttpStatus.CREATED);
 	}
 	
@@ -50,7 +65,13 @@ public class ReviewController {
 		if(idReview != review.getId()) {
 			return ResponseEntity.badRequest().build();
 		}
-		else if(!this.reviewService.existsReview(idReview)) {
+		if(!this.reviewService.existsReview(idReview)) {
+			return ResponseEntity.notFound().build();
+		}
+		if(!this.usuarioService.existsUsuario(review.getIdUsuario())) {
+			return ResponseEntity.notFound().build();
+		}
+		if(!this.desayunoService.existsDesayuno(review.getIdDesayuno())) {
 			return ResponseEntity.notFound().build();
 		}
 		

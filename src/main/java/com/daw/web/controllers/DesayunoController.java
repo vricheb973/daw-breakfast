@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.daw.persistence.entities.Desayuno;
 import com.daw.services.DesayunoService;
+import com.daw.services.EstablecimientoService;
 import com.daw.services.dtos.ImagenDTO;
 
 
@@ -25,6 +26,9 @@ public class DesayunoController {
 
 	@Autowired
 	private DesayunoService desayunoService;
+	
+	@Autowired
+	private EstablecimientoService establecimientoService;
 	
 	@GetMapping
 	public ResponseEntity<List<Desayuno>> list(){
@@ -42,6 +46,10 @@ public class DesayunoController {
 	
 	@PostMapping
 	public ResponseEntity<Desayuno> create(@RequestBody Desayuno desayuno){
+		if(!this.establecimientoService.existsEstablecimiento(desayuno.getIdEstablecimiento())){
+			return ResponseEntity.notFound().build();
+		}
+		
 		return new ResponseEntity<Desayuno>(this.desayunoService.create(desayuno), HttpStatus.CREATED);
 	}
 	
@@ -50,7 +58,10 @@ public class DesayunoController {
 		if(idDesayuno != desayuno.getId()) {
 			return ResponseEntity.badRequest().build();
 		}
-		else if(!this.desayunoService.existsDesayuno(idDesayuno)) {
+		if(!this.desayunoService.existsDesayuno(idDesayuno)) {
+			return ResponseEntity.notFound().build();
+		}
+		if(!this.establecimientoService.existsEstablecimiento(desayuno.getIdEstablecimiento())){
 			return ResponseEntity.notFound().build();
 		}
 		

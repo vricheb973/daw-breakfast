@@ -77,11 +77,11 @@ public class DesayunoService {
 	public Desayuno cambiarImagen(int idDesayuno, ImagenDTO imagenDTO) {
 		Desayuno desayuno = this.desayunoRepository.findById(idDesayuno).get();
 		
-		if(imagenDTO.getImagenUrl() != null || imagenDTO.getImagenUrl().isBlank()) {
+		if(imagenDTO.getImagen() == null || imagenDTO.getImagen().isBlank()) {
 			desayuno.setImagen(IMAGEN_POR_DEFECTO);
 		}
 		else {
-			desayuno.setImagen(imagenDTO.getImagenUrl());
+			desayuno.setImagen(imagenDTO.getImagen());
 		}
 		
 		

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.daw.persistence.entities.Desayuno;
 import com.daw.persistence.entities.Establecimiento;
 import com.daw.persistence.entities.Review;
+import com.daw.persistence.entities.Usuario;
 import com.daw.persistence.repositories.ReviewRepository;
 import com.daw.services.dtos.ReviewDTO;
 import com.daw.services.mappers.ReviewMapper;
@@ -24,6 +25,9 @@ public class ReviewService {
 	
 	@Autowired
 	private EstablecimientoService establecimientoService;
+
+	@Autowired
+	private UsuarioService usuarioService;
 	
 	//CRUDs
 	public List<ReviewDTO> findAll(){
@@ -45,9 +49,16 @@ public class ReviewService {
 	public ReviewDTO create(Review review) {
 		review = this.reviewRepository.save(review);
 		
+		//Actualizo puntuaciones
 		int idEstablecimiento = this.actualizarPuntuacionDesayuno(review.getIdDesayuno());
-		
 		this.actualizarPuntuacionEstablecimiento(idEstablecimiento);
+		
+		//Adjunto las entidades relacionadas para que no suelte NullPointerException el Mapper
+		Usuario u = this.usuarioService.findEntityById(review.getIdUsuario()).get();
+		Desayuno d = this.desayunoService.findEntityById(review.getIdDesayuno()).get();
+		
+		review.setUsuario(u);
+		review.setDesayuno(d);
 		
 		return ReviewMapper.toDto(review);
 	}
@@ -55,9 +66,16 @@ public class ReviewService {
 	public ReviewDTO save(Review review) {
 		review = this.reviewRepository.save(review);
 		
+		//Adjunto las entidades relacionadas para que no suelte NullPointerException el Mapper
 		int idEstablecimiento = this.actualizarPuntuacionDesayuno(review.getIdDesayuno());
-		
 		this.actualizarPuntuacionEstablecimiento(idEstablecimiento);
+		
+		//Adjunto las entidades relacionadas para que no suelte NullPointerException el Mapper
+		Usuario u = this.usuarioService.findEntityById(review.getIdUsuario()).get();
+		Desayuno d = this.desayunoService.findEntityById(review.getIdDesayuno()).get();
+		
+		review.setUsuario(u);
+		review.setDesayuno(d);
 		
 		return ReviewMapper.toDto(review);
 	}
@@ -66,10 +84,13 @@ public class ReviewService {
 		boolean result = false;
 		
 		if(this.reviewRepository.existsById(idReview)) {
+			//Antes de borrar recupero la review para obtener el ID del desayuno y poder actualizar puntuaciones
+			Review review = this.reviewRepository.findById(idReview).get();
+			
+			//Borro la review
 			this.reviewRepository.deleteById(idReview);
 			
-			//Recupero la review para obtener el ID del desayuno y poder actualizar puntuaciones
-			Review review = this.reviewRepository.findById(idReview).get();
+			//Actualizo puntuaciones
 			int idEstablecimiento = this.actualizarPuntuacionDesayuno(review.getIdDesayuno());
 			this.actualizarPuntuacionEstablecimiento(idEstablecimiento);
 			

@@ -50,7 +50,7 @@ public class EstablecimientoController {
 		if(idEstablecimiento != establecimiento.getId()) {
 			return ResponseEntity.badRequest().build();
 		}
-		else if(!this.establecimientoService.existsEstablecimiento(idEstablecimiento)) {
+		if(!this.establecimientoService.existsEstablecimiento(idEstablecimiento)) {
 			return ResponseEntity.notFound().build();
 		}
 		

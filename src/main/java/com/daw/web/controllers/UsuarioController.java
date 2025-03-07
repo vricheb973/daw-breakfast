@@ -51,7 +51,7 @@ public class UsuarioController {
 		if(idUsuario != usuario.getId()) {
 			return ResponseEntity.badRequest().build();
 		}
-		else if(!this.usuarioService.existsUsuario(idUsuario)) {
+		if(!this.usuarioService.existsUsuario(idUsuario)) {
 			return ResponseEntity.notFound().build();
 		}
 		
